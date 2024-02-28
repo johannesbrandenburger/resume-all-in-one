@@ -1,0 +1,125 @@
+{
+    "avatar": "johannes-brandenburger.png",
+    "preName": "Johannes",
+    "lastName": "Brandenburger",
+    "telephone": "+49 152 1111111",
+    "email": "johannes@brandenburger.dev",
+    "cityAndCountry": "Mengen, Germany",
+    "github": "github.com/johannesbrandenburger",
+    "linkedin": "linkedin.com/in/johannes-brandenburger",
+    "website": "resume.brandenburger.dev",
+    "objective": "I am Johannes, a passionate software developer and engineer. After my dual studies at [Example Company GmbH](https://www.example.com/), I am currently doing my Master's in Software Engineering in Konstanz, DE. In addition, I work as a freelance developer and consultant for various companies and realize my own side projects in my favorite topics, full-stack development and software architecture. <br /><br />Currently, I'm developing a resume generator, which is used to generate this resume.",
+    "education": [
+        {
+            "degree": "Master of Science",
+            "fieldOfStudy": "Software Engineering",
+            "university": "Example University",
+            "cityAndCountry": "Konstanz, Germany",
+            "from": "2023",
+            "to": "2025",
+            "expected": "2025",
+            "gradePointAverage": "1.2"
+        },
+        {
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science (Information Technology)",
+            "university": "Example University",
+            "cityAndCountry": "Mengen, Germany",
+            "from": "2020",
+            "to": "2023",
+            "gradePointAverage": "1.3",
+            "thesis": "Here should stand the title of the bachelor thesis",
+            "thesisGrade": "1.0"
+        }
+    ],
+    "skills": [
+        {
+            "field": "Technical Skills",
+            "entities": [
+                "Java",
+                "TypeScript",
+                "Python",
+                "C++",
+                "Docker",
+                "Kubernetes",
+                "Azure",
+                "AWS",
+                "TensorFlow",
+                "Quarkus",
+                "SAP Development"
+            ]
+        },
+        {
+            "field": "Soft Skills",
+            "entities": [
+                "Leadership Qualities ('You take on a very central role in planning and team communication')",
+                "Customer Orientation ('Your comprehensible and positive interaction with the CPOs is striking in a positive sense')",
+                "Communication Skills ('You communicate with great commitment and authenticity')"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "position": "Corporate Student",
+            "company": "[Example Company GmbH](https://www.example.com/)",
+            "cityAndCountry": "München, Germany",
+            "from": "Oct 2020",
+            "to": "Sep 2023",
+            "infos": [
+                "Visited all IT departments of the company",
+                "Stay abroad to work in a Example subsidiary in Italy for several months",
+                "Worked on real projects in an international business environment"
+            ]
+        },
+        {
+            "position": "Independent Software Developer and Consultant",
+            "company": "Your Own Company",
+            "cityAndCountry": "Konstanz, Germany",
+            "from": "Jan 2018",
+            "to": "Present",
+            "infos": [
+                "Among others, worked for XXX and YYY.",
+                "Full-stack development"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Resume All in One",
+            "description": "A web application to generate a web resume as well as a printable PDF version from a JSON file. This resume is generated using this application. Technologies used: Next.js, Aceternity UI and LaTeX.",
+            "image": "resume-generator.png",
+            "github": "github.com/johannesbrandenburger/resume-all-in-one"
+        },
+        {
+            "name": "Know Where You Go",
+            "description": "Open-source Google Maps Alternative",
+            "github": "github.com/DHBW-FN-TIT20/know-where-you-go",
+            "demo": "know-where-you-go.de",
+            "image": "know-where-you-go.png"
+        },
+        {
+            "name": "Flight Simulator Online 3D Game",
+            "description": "Developed a 3D game using three.js",
+            "github": "github.com/johannesbrandenburger/flight-simulator-pwa",
+            "demo": "flight-simulator.brandenburger.dev",
+            "image": "flight-simulator.png"
+        },
+        {
+            "name": "Reveal the World: Cloud Native Travel Map App",
+            "description": "A Web-App with Kubernetes, Terraform, Express, Vue and Leaflet made for running on Azure",
+            "github": "github.com/msi-se/reveal-the-world",
+            "image": "reveal-the-world.png"
+        },
+        {
+            "name": "User Authentication using Voice Recognition",
+            "description": "A student research project concerning the topic of user authentication using voice recognition.",
+            "github": "github.com/DHBW-FN-TIT20/user-authentication-using-voice-recognition"
+        }
+    ],
+    "extracurricularActivities": [
+        "Playing drums",
+        "Alpine skiing",
+        "Football"
+    ],
+    "impressum": "impressum.example.com"
+}
