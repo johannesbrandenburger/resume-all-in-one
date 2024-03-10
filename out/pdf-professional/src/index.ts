@@ -19,8 +19,19 @@ const buildLatex = (data: Data) => {
 
     \\name{${data.preName} ${data.lastName}}
     \\address{${data.telephone} \\\\ ${data.cityAndCountry}}
-    \\address{\\href{mailto:${data.email}}{${data.email}} \\\\ \\href{https://${data.linkedin}}{${data.linkedin}} \\\\ \\href{https://${data.website}}{${data.website}}}
+    `;
+    if (data.email || data.linkedin || data.website || data.github) {
 
+        latex += `\\address{`;
+        if (data.email) latex += `\\href{mailto:${data.email}}{${data.email}} \\\\ `;
+        if (data.linkedin) latex += `\\href{https://${data.linkedin}}{LinkedIn} \\\\ `;
+        if (data.website) latex += `\\href{https://${data.website}}{${data.website}} \\\\ `;
+        if (data.github) latex += `\\href{https://${data.github}}{Github} \\\\ `;
+        latex = latex.slice(0, -4);
+        latex += `}`;
+    }
+
+    latex += `
     \\begin{document}
 
     \\begin{rSection}{OBJECTIVE}
@@ -107,7 +118,10 @@ const buildLatex = (data: Data) => {
     `;
 
     // iterate over the projects array and add it to the latex string
-    data.projects.forEach((project) => {
+    data.projectsToShowInProfessionalResume.forEach((projectIndex) => {
+        let project = null;
+        try { project = data.projects[projectIndex] } catch (e) { } // catch wrong indices
+        if (!project) return;
         latex += `
         \\item \\textbf{${replaceMdWithLatexLinks(project.name)}}. ${replaceMdWithLatexLinks(project.description)} ${project.github ? `\\href{https://${project.github}}{(GitHub)}` : ""} ${project.demo ? `\\href{https://${project.demo}}{(Demo)}` : ""}
         `;
