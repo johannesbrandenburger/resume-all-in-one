@@ -17,9 +17,9 @@ export default function ContactButtons({ telephone, email, github, linkedin, web
     // remove the prefixes if there are any
     telephone = telephone?.replace("tel:", "");
     email = email?.replace("mailto:", "");
-    github = github?.replace("https://www.", "");
-    linkedin = linkedin?.replace("https://www.", "");
-    website = website?.replace("https://www.", "");
+    github = github?.replace("https://", "");
+    linkedin = linkedin?.replace("https://", "");
+    website = website?.replace("https://", "");
 
     return (
         // centered
