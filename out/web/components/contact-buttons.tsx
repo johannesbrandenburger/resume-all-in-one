@@ -39,21 +39,21 @@ export default function ContactButtons({ telephone, email, github, linkedin, web
                 </Link>
             }
             {github &&
-                <Link href={`https://wwww.${github}`}>
+                <Link href={`https://${github}`}>
                     <button className="px-4 py-2 backdrop-blur-sm border bg-purple-300/10 border-purple-500/20 text-black dark:text-white mx-auto text-center rounded-full mt-4 font-bold inter-var flex justify-center gap-2">
                         <IconBrandGithub size={24} />
                     </button>
                 </Link>
             }
             {linkedin &&
-                <Link href={`https://www.${linkedin}`}>
+                <Link href={`https://${linkedin}`}>
                     <button className="px-4 py-2 backdrop-blur-sm border bg-blue-300/10 border-blue-500/20 text-black dark:text-white mx-auto text-center rounded-full mt-4 font-bold inter-var flex justify-center gap-2">
                         <IconBrandLinkedin size={24} />
                     </button>
                 </Link>
             }
             {website &&
-                <Link href={`https://www.${website}`}>
+                <Link href={`https://${website}`}>
                     <button className="px-4 py-2 backdrop-blur-sm border bg-orange-300/10 border-orange-500/20 text-black dark:text-white mx-auto text-center rounded-full mt-4 font-bold inter-var flex justify-center gap-2">
                         <IconWorld size={24} />
                     </button>
