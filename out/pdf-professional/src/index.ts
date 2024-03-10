@@ -39,7 +39,10 @@ const buildLatex = (data: Data) => {
     {${replaceMdWithLatexLinks(data.objective)}}
 
     \\end{rSection}
+    `;
 
+    if (data.newPageBefore.includes("education")) latex += `\\newpage`;
+    latex += `
     \\begin{rSection}{Education}
     `;
 
@@ -77,7 +80,9 @@ const buildLatex = (data: Data) => {
 
     latex += `
     \\end{rSection}
-
+    `;
+    if (data.newPageBefore.includes("skills")) latex += `\\newpage`;
+    latex += `
     \\begin{rSection}{SKILLS}
     `;
 
@@ -94,7 +99,9 @@ const buildLatex = (data: Data) => {
     latex += `
     \\end{tabularx}\\\\
     \\end{rSection}
-
+    `;
+    if (data.newPageBefore.includes("experience")) latex += `\\newpage`;
+    latex += `
     \\begin{rSection}{EXPERIENCE}
     `;
 
@@ -112,7 +119,10 @@ const buildLatex = (data: Data) => {
 
     latex += `
     \\end{rSection}
+    `;
 
+    if (data.newPageBefore.includes("projects")) latex += `\\newpage`;
+    latex += `
     \\begin{rSection}{PROJECTS}
     \\vspace{-1.25em}
     `;
@@ -129,6 +139,9 @@ const buildLatex = (data: Data) => {
 
     latex += `
     \\end{rSection}
+    `;
+    if (data.newPageBefore.includes("extracurricularActivities")) latex += `\\newpage`;
+    latex += `
 
     \\begin{rSection}{Extra-Curricular Activities}
     \\begin{itemize}

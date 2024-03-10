@@ -122,5 +122,6 @@
         "Alpine skiing",
         "Football"
     ],
-    "impressum": "impressum.example.com"
+    "impressum": "impressum.example.com",
+    "newPageBefore": [ "projects" ]
 }
