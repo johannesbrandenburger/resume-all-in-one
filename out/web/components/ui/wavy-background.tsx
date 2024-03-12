@@ -63,20 +63,38 @@ export const WavyBackground = ({
     render();
   };
 
+  const hslToHexStr = (h: number, s: number, l: number) => {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = (n: number) => {
+      const k = (n + h / 30) % 12;
+      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+      return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+  }
+
+  const customOpacity = 91;
   const waveColors = colors ?? [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
-    "#e879f9",
-    "#22d3ee",
+    // "#38bdf8",
+    // "#818cf8",
+    // "#c084fc",
+    // "#e879f9",
+    // "#22d3ee",
+
     // "#265073",
     // "#265073",
     // "#2D9596",
     // "#9AD0C2",
     // "#F1FADA",
+
+    hslToHexStr(170, 100, customOpacity),
+    hslToHexStr(190, 100, customOpacity),
+    hslToHexStr(210, 100, customOpacity),
+    hslToHexStr(220, 100, customOpacity),
   ];
   const drawWave = (n: number) => {
-    nt += 0.0008;
+    nt += 0.0006;
     for (i = 0; i < n; i++) {
       ctx.beginPath();
       ctx.lineWidth = 50;
