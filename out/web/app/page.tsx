@@ -11,6 +11,7 @@ import { ProjectCards } from "@/components/project-cards";
 import Skills from "@/components/skills";
 import ContactButtons from "@/components/contact-buttons";
 import ImpressumButton from "@/components/impressum-button";
+import ExtracurricularActivities from "@/components/extracurricular-activities";
 
 export default function Home() {
 
@@ -34,6 +35,9 @@ export default function Home() {
           
           <SectionHeading>Projects</SectionHeading>
           <ProjectCards items={data.projects} />
+          
+          <SectionHeading>Extracurricular Activities</SectionHeading>
+          <ExtracurricularActivities extracurricularActivities={data.extracurricularActivities} />
 
           <ImpressumButton link={data.impressum} />
         </div>
