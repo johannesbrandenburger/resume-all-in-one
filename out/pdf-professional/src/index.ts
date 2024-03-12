@@ -14,9 +14,14 @@ const buildLatex = (data: Data) => {
 
     \\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry}
     \\usepackage{tabularx}
+    \\usepackage{graphicx}
+    \\usepackage{float}
     \\newcommand{\\tab}[1]{\\hspace{.2667\\textwidth}\\rlap{#1}} 
     \\newcommand{\\itab}[1]{\\hspace{0em}\\rlap{#1}}
 
+    `;
+
+    latex += `
     \\name{${data.preName} ${data.lastName}}
     \\address{${data.telephone} \\\\ ${data.cityAndCountry}}
     `;
@@ -25,14 +30,28 @@ const buildLatex = (data: Data) => {
         latex += `\\address{`;
         if (data.email) latex += `\\href{mailto:${data.email}}{${data.email}} \\\\ `;
         if (data.linkedin) latex += `\\href{https://${data.linkedin}}{LinkedIn} \\\\ `;
+        if (data.github) latex += `\\href{https://${data.github}}{GitHub} \\\\ `;
         if (data.website) latex += `\\href{https://${data.website}}{${data.website}} \\\\ `;
-        if (data.github) latex += `\\href{https://${data.github}}{Github} \\\\ `;
         latex = latex.slice(0, -4);
         latex += `}`;
     }
 
     latex += `
     \\begin{document}
+
+    `;
+
+    if (data.avatar) {
+        latex += `
+        \\begin{figure}[H]
+        \\centering
+        \\includegraphics[width=75px]{../web/public/${data.avatar}}
+        \\end{figure}
+        \\vspace{-2em}
+        `;
+    }
+
+    latex += `
 
     \\begin{rSection}{OBJECTIVE}
 
