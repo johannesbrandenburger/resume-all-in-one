@@ -74,7 +74,11 @@ export const WavyBackground = ({
     return `#${f(0)}${f(8)}${f(4)}`;
   }
 
-  const customOpacity = 91;
+  let customOpacity = 91;
+  if (backgroundFill === "black") {
+    customOpacity = 100-customOpacity;
+  }
+  
   const waveColors = colors ?? [
     // "#38bdf8",
     // "#818cf8",
