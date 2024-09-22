@@ -16,6 +16,7 @@ const buildLatex = (data: Data) => {
     \\usepackage{tabularx}
     \\usepackage{graphicx}
     \\usepackage{float}
+    \\usepackage[utf8]{inputenc}
     \\newcommand{\\tab}[1]{\\hspace{.2667\\textwidth}\\rlap{#1}} 
     \\newcommand{\\itab}[1]{\\hspace{0em}\\rlap{#1}}
 
