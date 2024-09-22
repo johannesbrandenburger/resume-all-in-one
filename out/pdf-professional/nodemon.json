@@ -2,5 +2,5 @@
     "watch": ["src", ".", "../../in/data.json"],
     "ext": ".ts,.js,.json",
     "ignore": [],
-    "exec": "docker run -v $(pwd)/../..:/home --rm $(docker build -q .)"
-  }
+    "exec": "npx ts-node ./src/index.ts && cd ../.. && docker run -v $(pwd):/data pdf-professional && cd out/pdf-professional"
+}
