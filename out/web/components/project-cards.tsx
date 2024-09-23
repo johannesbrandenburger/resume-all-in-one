@@ -1,3 +1,5 @@
+"use client";
+import { cn } from "@/utils/cn";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
 import NextImage from "next/image";
@@ -24,33 +26,61 @@ export function ProjectCards({ items }: EducationCardsProps) {
       {items.map((item, i) => {
 
         const descriptionWithLinks = replaceMdWithNextLinks(item.description);
+        const pressOnItem = () => {
+          console.log("opening project", item.name);
+          let url = item.demo || item.github || "";
+          if (url === "") {
+            console.error("No link available for project", item.name);
+            return
+          }
+          url = "https://" + url.replace("https://" || "http://", "");
+          window.open(url, "_blank");
+        }
+
+        let isClickable = item.demo || item.github ? true : false;
 
         return (
-          <CardContainer className="inter-var mt-0" key={i}>
-            <CardBody className="bg-gray-50/70 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black/70 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+          <CardContainer className="inter-var mt-0 sm:w-[30rem] w-auto" key={i}>
+            <CardBody className="bg-gray-50/70 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black/70 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
               <CardItem
                 translateZ="30"
-                className="text-xl font-bold text-neutral-600 dark:text-white"
+                onClick={pressOnItem}
+                className={cn(
+                  "text-xl font-bold text-neutral-600 dark:text-white",
+                  isClickable ? "cursor-pointer" : ""
+                )}
               >
                 {item.name}
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="40"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                className={cn(
+                  "text-neutral-500 text-sm mt-2 dark:text-neutral-300",
+                  isClickable ? "cursor-pointer" : ""
+                )}
+                onClick={pressOnItem}
               >
                 {descriptionWithLinks}
               </CardItem>
               {item.image &&
-                <CardItem translateZ="60" className="w-full mt-4">
-                  <NextImage
-                    src={"/gen/" + item.image}
-                    height="1000"
-                    width="1000"
-                    className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                    alt="thumbnail"
-                  />
-                </CardItem>
+                // <div className="flex justify-between items-center mt-5">
+                  <CardItem translateZ="60"
+                    className={cn(
+                      "mt-4 bg-white rounded-xl",
+                      isClickable ? "cursor-pointer" : ""
+                    )}
+                    onClick={pressOnItem}
+                  >
+                    <NextImage
+                      src={"/gen/" + item.image}
+                      height="1000"
+                      width="1000"
+                      className="w-full h-full object-contain group-hover/card:shadow-xl rounded-xl"
+                      alt="thumbnail"
+                    />
+                  </CardItem>
+                // </div>
               }
               {(item.github || item.demo) &&
                 <div className="flex justify-between items-center mt-5">

@@ -53,7 +53,7 @@ export const CardContainer = ({
           containerClassName
         )}
         style={{
-          perspective: "1000px",
+          perspective: "3500px",
         }}
       >
         <div
@@ -105,6 +105,7 @@ export const CardItem = ({
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,
+  onClick,
   ...rest
 }: {
   as?: React.ElementType;
@@ -116,6 +117,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
@@ -135,6 +137,7 @@ export const CardItem = ({
 
   return (
     <Tag
+      onClick={onClick}
       ref={ref}
       className={cn("w-fit transition duration-200 ease-linear", className)}
       {...rest}
