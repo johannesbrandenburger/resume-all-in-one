@@ -34,11 +34,32 @@
 
 #data.telephone #diamontSep #data.cityAndCountry
 #v(-6pt)
-#link("mailto:" + data.email)[#data.email] #diamontSep
-#link("https://www." + data.linkedin)[LinkedIn] #diamontSep
-#link("https://www." + data.github)[GitHub] #diamontSep
-#link("https://www." + data.website)[#data.website] #diamontSep
-
+#{
+  let socialMedia = ()
+  if (data.keys().contains("email")) {
+    socialMedia.push(
+      link("mailto:" + data.email)[#data.email]
+    )
+  }
+  if (data.keys().contains("linkedin")) {
+    socialMedia.push(
+      link("https://www." + data.linkedin)[LinkedIn]
+    )
+  }
+  if (data.keys().contains("github")) {
+    socialMedia.push(
+      link("https://www." + data.github)[GitHub]
+    )
+  }
+  if (data.keys().contains("website")) {
+    socialMedia.push(
+      link("https://www." + data.website)[#data.website]
+    )
+  }
+  if (socialMedia.len() > 0) {
+    socialMedia.join([ #diamontSep ])
+  }
+}
 #figure(
   box(
     clip: true,
