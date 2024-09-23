@@ -2,7 +2,7 @@
 // FORMATTER FUNCTIONS
 #let formatText(inputText) = {
   // Replace all <br /> with new line
-  inputText = inputText.replace(regex("<br />"), "#linebreak()")
+  inputText = inputText.replace(regex("<br />"), "#v(0pt)")
   // Replace all [Text](https://www.link.com) with link
   inputText = inputText.replace(regex("(?U)\[(.*)\]\((.*)\)"), (occur) => {
     let text = occur.captures.at(0)
@@ -113,7 +113,7 @@
 
     // if one skill has more then 80 characters, put every skill in a new line
     #if (skill.entities.any((entity) => entity.len() > 80)) {
-      formatText(skill.entities.join(", <br />"))
+      formatText(skill.entities.join(", #v(-4pt)"))
     } else {
       formatText(skill.entities.join(", "))
     }

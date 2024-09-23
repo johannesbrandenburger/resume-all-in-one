@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "copy-img": "cp ../../in/img/* ./public/gen/",
-    "dev": "cp ../../in/img/* ./public/gen/ && next dev",
-    "build": "cp ../../in/img/* ./public/gen/ && next build",
-    "start": "cp ../../in/img/* ./public/gen/ && next start",
-    "lint": "cp ../../in/img/* ./public/gen/ && next lint"
+    "copy-img": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/",
+    "dev": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next dev",
+    "build": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next build",
+    "start": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next start",
+    "lint": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next lint"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",

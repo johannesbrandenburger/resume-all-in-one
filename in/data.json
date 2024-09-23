@@ -8,7 +8,7 @@
     "github": "github.com/johannesbrandenburger",
     "linkedin": "linkedin.com/in/johannes-brandenburger",
     "website": "resume.example.de",
-    "objective": "I am Johannes, a passionate software developer and engineer. After my dual studies at [Example Company GmbH](https://www.example.com/), I am currently doing my Master's in Software Engineering in Konstanz, DE. In addition, I work as a freelance developer and consultant for various companies and realize my own side projects in my favorite topics, full-stack development and software architecture. <br />Currently, I'm developing a resume generator, which is used to generate this resume.",
+    "objective": "I am Johannes, a passionate software developer and engineer. After my dual studies at [Example Company GmbH](https://www.example.com/), I am currently doing my Master's in Software Engineering in Konstanz, DE. In addition, I work as a freelance developer and consultant for various companies and realize my own side projects in my favorite topics, full-stack development and software architecture. <br /><br />Currently, I'm developing a resume generator, which is used to generate this resume.",
     "education": [
         {
             "degree": "Master of Science",
