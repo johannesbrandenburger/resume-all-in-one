@@ -1,6 +1,6 @@
 {
     "watch": ["src", ".", "../../in/data.json"],
-    "ext": ".ts,.js,.json",
+    "ext": ".ts,.js,.json,.typ",
     "ignore": [],
-    "exec": "npx ts-node ./src/index.ts && cd ../.. && docker run -v $(pwd):/data pdf-professional && cd out/pdf-professional"
+    "exec": "./update.sh"
 }

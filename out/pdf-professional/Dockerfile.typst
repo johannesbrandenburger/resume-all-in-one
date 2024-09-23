@@ -1,9 +1,0 @@
-FROM ghcr.io/typst/typst:latest
-
-VOLUME /home
-WORKDIR /home
-
-ENTRYPOINT [ "typst", "compile", "./out/pdf-professional/main.typ", "--root", "/home" ]
-
-
-# // "exec": "docker run -v $(pwd)/../..:/home --rm $(docker build -q .)" // typst

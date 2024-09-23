@@ -42,7 +42,7 @@
 #figure(
   box(
     clip: true,
-    radius: 10pt,
+    radius: 5pt,
   )[
     #image("../web/public/" + data.avatar, width: 20%)
   ]

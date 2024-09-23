@@ -1,23 +1,16 @@
-# simple Dockerfile to compile a pdf using pdflatex
+FROM ghcr.io/typst/typst:latest
 
-FROM ubuntu:18.04
+VOLUME /home
+WORKDIR /home
 
-# install texlive and pdflatex
-RUN apt-get update
-RUN apt-get install -y texlive
-RUN apt-get install -y texlive-fonts-recommended
+# compile a demo document to download the needed packages
+# import "@preview/oxifmt:0.2.1": strfmt
+RUN mkdir /ttemp
+WORKDIR /ttemp
+RUN echo "#import \"@preview/oxifmt:0.2.1\": strfmt" > /ttemp/main.typ
+RUN typst compile /ttemp/main.typ
+RUN rm -rf /ttemp
 
-# mount the volume
-VOLUME /data
-
-# set the working directory
-WORKDIR /data
-
-# run the compile-in-container.sh script
-CMD [ "/bin/bash", "/data/out/pdf-professional/compile-in-container.sh" ]
-
-# build the image from root directory
-# docker build -t pdf-professional ./out/pdf-professional
-
-# run the container
-# docker run -v $(pwd):/data pdf-professional
+# compile the document
+WORKDIR /home
+ENTRYPOINT [ "typst", "compile", "./out/pdf-professional/main.typ", "--root", "/home" ]

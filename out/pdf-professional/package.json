@@ -2,12 +2,12 @@
   "name": "resume-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "copy-to-web.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
     "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js"
+    "start": "npm run build && node build/copy-to-web.js"
   },
   "keywords": [],
   "author": "",
