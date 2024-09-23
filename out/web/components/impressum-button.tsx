@@ -1,7 +1,5 @@
 "use client";
 
-import { WavyBackground } from "@/components/ui/wavy-background"
-import { IconDownload, IconFileTypePdf } from "@tabler/icons-react";
 import Link from 'next/link'
 
 

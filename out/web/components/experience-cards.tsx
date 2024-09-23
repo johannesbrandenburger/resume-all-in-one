@@ -1,31 +1,6 @@
-import { cn } from "@/utils/cn";
 import React from "react";
 import { BentoGrid2, BentoGrid2Item } from "./ui/bento-grid-2";
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-  IconProgress,
-  IconCertificate2
-} from "@tabler/icons-react";
 import { replaceMdWithNextLinks } from "@/utils/replace-md-with-next-links";
-
-// {
-//   "position": "Corporate Student",
-//   "company": "[Geberit](https://www.geberit.com/)",
-//   "cityAndCountry": "Pfullendorf, Germany",
-//   "from": "Oct 2020",
-//   "to": "Sep 2023",
-//   "infos": [
-//       "Visited all IT departments of the company",
-//       "Developed a full-stack application for security checks used in production"
-//   ]
-// },
-
 
 type ExperienceCardsProps = {
   items: {

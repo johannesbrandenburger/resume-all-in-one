@@ -1,9 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
-import { WavyBackground } from "@/components/ui/wavy-background"
-import Link from 'next/link'
 import { replaceMdWithNextLinks } from "@/utils/replace-md-with-next-links";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
@@ -30,7 +26,7 @@ export default function Title({ preName, lastName, objective, avatar }: TitlePro
             </p>
             { avatar && 
                 <Avatar className="mx-auto mt-4">
-                    <AvatarImage src={"/" + avatar} alt={`${preName} ${lastName}`} />
+                    <AvatarImage src={"/gen/" + avatar} alt={`${preName} ${lastName}`} />
                     <AvatarFallback>
                         {preName[0]}{lastName[0]}
                     </AvatarFallback>

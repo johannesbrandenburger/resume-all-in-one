@@ -1,9 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
-import { WavyBackground } from "@/components/ui/wavy-background"
-import Link from 'next/link'
 import { replaceMdWithNextLinks } from "@/utils/replace-md-with-next-links";
 
 

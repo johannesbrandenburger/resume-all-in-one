@@ -1,27 +1,9 @@
-import { cn } from "@/utils/cn";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
   IconProgress,
   IconCertificate2
 } from "@tabler/icons-react";
-
-// "degree": "Master of Science",
-// "fieldOfStudy": "Software Engineering",
-// "university": "University of Applied Sciences Konstanz",
-// "cityAndCountry": "Konstanz, Germany",
-// "from": "2023",
-// "to": "2025",
-// "expected": "2025",
-// "gradePointAverage": "1.0"
-
 
 type EducationCardsProps = {
   items: {

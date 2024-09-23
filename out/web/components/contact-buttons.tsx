@@ -1,6 +1,5 @@
 "use client";
 
-import { WavyBackground } from "@/components/ui/wavy-background"
 import { IconBrandGithub, IconBrandLinkedin, IconDownload, IconGlobe, IconMail, IconPhone, IconWorld } from "@tabler/icons-react";
 import Link from 'next/link'
 

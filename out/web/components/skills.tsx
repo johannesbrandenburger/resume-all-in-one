@@ -1,35 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
-import { WavyBackground } from "@/components/ui/wavy-background"
-import Link from 'next/link'
 import { replaceMdWithNextLinks } from "@/utils/replace-md-with-next-links";
 
-// "skills": [
-//     {
-//         "field": "Technical Skills",
-//         "entities": [
-//             "Java",
-//             "TypeScript",
-//             "Python",
-//             "Docker",
-//             "Kubernetes",
-//             "Azure",
-//             "AWS",
-//             "TensorFlow",
-//             "Quarkus",
-//             "SAP Development"
-//         ]
-//     },
-//     {
-//         "field": "Soft Skills",
-//         "entities": [
-//             "Leadership Qualities ('You take on a very central role in planning and team communication')",
-//             "Customer Orientation ('Your comprehensible and positive interaction with the CPOs is striking in a positive sense')",
-//             "Communication Skills ('You communicate with great commitment and authenticity')"
-//         ]
-//     }
 
 type SkillsProps = {
     topics: {

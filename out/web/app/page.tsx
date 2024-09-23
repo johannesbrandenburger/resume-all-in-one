@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
 import Title from "@/components/title";
 import data from "../../../in/data.json"
 import DownloadProfessionalResumeButton from "@/components/download-resume";

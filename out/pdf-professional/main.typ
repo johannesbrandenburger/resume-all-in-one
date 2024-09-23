@@ -44,7 +44,7 @@
     clip: true,
     radius: 5pt,
   )[
-    #image("../web/public/" + data.avatar, width: 20%)
+    #image("../../in/img/" + data.avatar, width: 20%)
   ]
 )
 

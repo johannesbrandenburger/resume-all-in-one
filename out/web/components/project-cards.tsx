@@ -1,19 +1,7 @@
-import { cn } from "@/utils/cn";
 import React from "react";
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-  IconCertificate
-} from "@tabler/icons-react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
 import NextImage from "next/image";
 import { replaceMdWithNextLinks } from "@/utils/replace-md-with-next-links";
-import { BentoGrid } from "./ui/bento-grid";
 
 type EducationCardsProps = {
   items: {
@@ -56,7 +44,7 @@ export function ProjectCards({ items }: EducationCardsProps) {
               {item.image &&
                 <CardItem translateZ="60" className="w-full mt-4">
                   <NextImage
-                    src={"/" + item.image}
+                    src={"/gen/" + item.image}
                     height="1000"
                     width="1000"
                     className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
