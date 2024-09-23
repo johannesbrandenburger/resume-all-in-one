@@ -149,7 +149,10 @@
 == PROJECTS
 #line(length: 100%)
 
-#for project in data.projects {
+#for i in data.projectsToShowInProfessionalResume {
+
+  let project = data.projects.at(i)
+
   text(project.name + ": ", weight: "bold")
   text(formatText(project.description))
 
