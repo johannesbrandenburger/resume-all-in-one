@@ -2,5 +2,5 @@
     "watch": ["src", ".", "../../in/data.json"],
     "ext": ".ts,.js,.json,.typ",
     "ignore": [],
-    "exec": "./update.sh"
+    "exec": "typst compile main.typ --root ../../ && npx ts-node ./copy-to-web.ts"
 }
