@@ -167,9 +167,6 @@
                             "required": [
                                 "name",
                                 "description",
-                                "github",
-                                "image",
-                                "demo"
                             ]
                         }
                     },
