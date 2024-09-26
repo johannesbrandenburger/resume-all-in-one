@@ -20,10 +20,10 @@ npm i
 npm run dev &
 cd ../..
 
-# # 2. in out/pdf-professional nodemon update.sh
-# cd out/pdf-professional
-# nodemon . &
-# cd ../..
+# 2. in out/pdf-professional nodemon update.sh
+cd out/pdf-professional
+nodemon . &
+cd ../..
 
 # wait for both processes to finish
 wait
