@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: `${data.preName} ${data.lastName} - Resume`,
   description: `Online Resume of ${data.preName} ${data.lastName}`,
+  metadataBase: new URL(`https://${data.domain}`),
 };
 
 export default function RootLayout({

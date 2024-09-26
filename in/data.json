@@ -123,5 +123,6 @@
         "Football"
     ],
     "impressum": "impressum.example.com",
-    "newPageBefore": [ "projects" ]
+    "newPageBefore": [ "projects" ],
+    "domain": "resume.brandenburger.dev"
 }
