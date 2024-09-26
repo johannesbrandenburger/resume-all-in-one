@@ -7,7 +7,8 @@
     "dev": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next dev",
     "build": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next build",
     "start": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next start",
-    "lint": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next lint"
+    "lint": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && next lint",
+    "export": "mkdir -p ./public/gen/ && cp ../../in/img/* ./public/gen/ && mv next.config.mjs next.config.temp.mjs && mv next.config-export.mjs next.config.mjs && next build && mv next.config.mjs next.config-export.mjs && mv next.config.temp.mjs next.config.mjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
