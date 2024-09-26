@@ -1,0 +1,225 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/in/data.json"
+            ],
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "avatar": {
+                        "type": "string"
+                    },
+                    "preName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "telephone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "cityAndCountry": {
+                        "type": "string"
+                    },
+                    "github": {
+                        "type": "string"
+                    },
+                    "linkedin": {
+                        "type": "string"
+                    },
+                    "website": {
+                        "type": "string"
+                    },
+                    "objective": {
+                        "type": "string"
+                    },
+                    "education": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "degree": {
+                                    "type": "string"
+                                },
+                                "fieldOfStudy": {
+                                    "type": "string"
+                                },
+                                "university": {
+                                    "type": "string"
+                                },
+                                "cityAndCountry": {
+                                    "type": "string"
+                                },
+                                "from": {
+                                    "type": "string"
+                                },
+                                "to": {
+                                    "type": "string"
+                                },
+                                "expected": {
+                                    "type": "string"
+                                },
+                                "gradePointAverage": {
+                                    "type": "string"
+                                },
+                                "thesis": {
+                                    "type": "string"
+                                },
+                                "thesisGrade": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "degree",
+                                "fieldOfStudy",
+                                "university",
+                                "cityAndCountry",
+                                "from",
+                                "to",
+                                "gradePointAverage"
+                            ]
+                        }
+                    },
+                    "skills": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "field": {
+                                    "type": "string"
+                                },
+                                "entities": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "field",
+                                "entities"
+                            ]
+                        }
+                    },
+                    "experience": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "position": {
+                                    "type": "string"
+                                },
+                                "company": {
+                                    "type": "string"
+                                },
+                                "cityAndCountry": {
+                                    "type": "string"
+                                },
+                                "from": {
+                                    "type": "string"
+                                },
+                                "to": {
+                                    "type": "string"
+                                },
+                                "infos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "position",
+                                "company",
+                                "cityAndCountry",
+                                "from",
+                                "to",
+                                "infos"
+                            ]
+                        }
+                    },
+                    "projects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "image": {
+                                    "type": "string"
+                                },
+                                "github": {
+                                    "type": "string"
+                                },
+                                "demo": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "description",
+                                "github",
+                                "image",
+                                "demo"
+                            ]
+                        }
+                    },
+                    "projectsToShowInProfessionalResume": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "extracurricularActivities": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "impressum": {
+                        "type": "string"
+                    },
+                    "newPageBefore": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "domain": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "avatar",
+                    "preName",
+                    "lastName",
+                    "telephone",
+                    "email",
+                    "cityAndCountry",
+                    "github",
+                    "linkedin",
+                    "website",
+                    "objective",
+                    "education",
+                    "skills",
+                    "experience",
+                    "projects",
+                    "projectsToShowInProfessionalResume",
+                    "extracurricularActivities",
+                    "impressum",
+                    "newPageBefore",
+                    "domain"
+                ]
+            }
+        }
+    ]
+}
