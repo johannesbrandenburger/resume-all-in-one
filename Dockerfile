@@ -13,12 +13,17 @@ RUN rm -rf /ttemp
 # NODE INSTALLATION
 RUN apk add --no-cache nodejs npm
 RUN npm install -g nodemon
+RUN npm install -g ts-node
 
-EXPOSE 3000
+EXPOSE 3000:3000
 
 # # MOUNT THE WORKING DIRECTORY
 VOLUME /home
 WORKDIR /home
+
+# execute npm i in out/pdf-professional and out/web
+# RUN cd /home/out/web && npm i
+# RUN cd /home/out/pdf-professional && npm i
 
 # RUN THE watch.sh SCRIPT
 CMD [ "sh", "/home/watch.sh" ]
