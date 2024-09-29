@@ -1,3 +1,4 @@
+import { PreviewLinkComponent } from '@/components/preview-link';
 import Link from 'next/link';
 
 // replace markdown style links "[link text](url)" with next links
@@ -11,7 +12,8 @@ export const replaceMdWithNextLinks = (text: string): (JSX.Element | string)[] =
         if (i % 3 === 0) {
             result.push(parts[i]);
         } else if (i % 3 === 1) {
-            result.push(<Link className='a-bit-blue dark:text-blue-400 text-blue-700' key={parts[i + 1]} href={parts[i + 1]}>{parts[i]}</Link>);
+            // result.push(<Link className='a-bit-blue dark:text-blue-400 text-blue-700' key={parts[i + 1]} href={parts[i + 1]}>{parts[i]}</Link>);
+            result.push(<PreviewLinkComponent key={parts[i + 1]} href={parts[i + 1]}>{parts[i]}</PreviewLinkComponent>);
         }
     }
 
