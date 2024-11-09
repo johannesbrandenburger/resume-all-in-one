@@ -24,17 +24,12 @@
 
 
 .a-bit-blue {
+  color: rgb(0, 0, 0); /* Default color for light mode */
 
   @media (prefers-color-scheme: dark) {
-    color: rgb(151, 174, 255);
+    color: rgb(151, 174, 255); /* Color for dark mode */
   }
-
-  @media (prefers-color-scheme: light) {
-    color: rgb(0, 0, 118);
-  }
-
 }
-
 
 @layer base {
   :root {

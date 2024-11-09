@@ -13,7 +13,7 @@ type SkillsProps = {
 export default function Skills({ topics }: SkillsProps) {
 
     // display them under each other if at least one entry is more than 50 characters long
-    let convertedTopics = topics.map((topic) => {
+    let convertedTopics = topics?.map((topic) => {
         return {
             field: replaceMdWithNextLinks(topic.field),
             entities: topic.entities.map((entity) => replaceMdWithNextLinks(entity)),
@@ -36,7 +36,7 @@ export default function Skills({ topics }: SkillsProps) {
                                 <div className="list-disc list-inside text-base text-black dark:text-white font-normal max-w-100 justify-center text-center">
                                     {topic.entities.map((entity, index) => {
                                         return (
-                                            <p key={index} className="mb-2">
+                                            <p key={index} className="mb-2 dark:text-white">
                                                 {entity}
                                             </p>
                                         );
@@ -47,7 +47,7 @@ export default function Skills({ topics }: SkillsProps) {
                                 <div className="flex flex-wrap justify-center">
                                     {topic.entities.map((entity, index) => {
                                         return (
-                                            <p key={index} className="m-2">
+                                            <p key={index} className="m-2 dark:text-white">
                                                 {entity}
                                             </p>
                                         );
