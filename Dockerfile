@@ -1,6 +1,6 @@
 
 # TYPST INSTALLATION
-FROM ghcr.io/typst/typst:latest
+FROM ghcr.io/typst/typst:v0.13.1
 
 # compile a demo document to download the needed packages
 # import "@preview/oxifmt:0.2.1": strfmt
@@ -26,4 +26,5 @@ WORKDIR /home
 # RUN cd /home/out/pdf-professional && npm i
 
 # RUN THE watch.sh SCRIPT
+entrypoint [ "" ]
 CMD [ "sh", "/home/watch.sh" ]
