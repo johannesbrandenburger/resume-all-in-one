@@ -26,5 +26,5 @@ WORKDIR /home
 # RUN cd /home/out/pdf-professional && npm i
 
 # RUN THE watch.sh SCRIPT
-entrypoint [ "" ]
+ENTRYPOINT [ "" ]
 CMD [ "sh", "/home/watch.sh" ]

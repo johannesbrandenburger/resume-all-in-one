@@ -22,6 +22,7 @@ cd ../..
 
 # 2. in out/pdf-professional nodemon update.sh
 cd out/pdf-professional
+npm i
 nodemon . &
 cd ../..
 
