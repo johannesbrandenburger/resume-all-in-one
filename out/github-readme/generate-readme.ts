@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getBadge } from "./badges";
 
 interface ResumeData {
     avatar: string;
@@ -55,49 +56,28 @@ function cleanMarkdownLinks(text: string): string {
     return text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 }
 
-function createTechSkillBadges(skills: string[]): string {
-    const badgeMap: { [key: string]: string } = {
-        'Java': 'https://custom-icon-badges.demolab.com/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white',
-        'TypeScript': 'https://custom-icon-badges.demolab.com/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white',
-        'JavaScript': 'https://custom-icon-badges.demolab.com/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black',
-        'Python': 'https://custom-icon-badges.demolab.com/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white',
-        'C++': 'https://custom-icon-badges.demolab.com/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white',
-        'Docker': 'https://custom-icon-badges.demolab.com/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white',
-        'Kubernetes': 'https://custom-icon-badges.demolab.com/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white',
-        'Azure': 'https://custom-icon-badges.demolab.com/badge/Microsoft_Azure-0089D0?style=for-the-badge&logo=microsoft-azure&logoColor=white',
-        'AWS': 'https://custom-icon-badges.demolab.com/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white',
-        'TensorFlow': 'https://custom-icon-badges.demolab.com/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white',
-        'Quarkus': 'https://custom-icon-badges.demolab.com/badge/Quarkus-4695EB?style=for-the-badge&logo=quarkus&logoColor=white',
-        'React': 'https://custom-icon-badges.demolab.com/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
-        'Node.js': 'https://custom-icon-badges.demolab.com/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white',
-        'Next.js': 'https://custom-icon-badges.demolab.com/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
-        'Vue.js': 'https://custom-icon-badges.demolab.com/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D',
-        'Angular': 'https://custom-icon-badges.demolab.com/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white',
-        'Express': 'https://custom-icon-badges.demolab.com/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white',
-        'MongoDB': 'https://custom-icon-badges.demolab.com/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white',
-        'PostgreSQL': 'https://custom-icon-badges.demolab.com/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
-        'MySQL': 'https://custom-icon-badges.demolab.com/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
-        'Redis': 'https://custom-icon-badges.demolab.com/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white',
-        'Git': 'https://custom-icon-badges.demolab.com/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white',
-        'GitHub': 'https://custom-icon-badges.demolab.com/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white',
-        'GitLab': 'https://custom-icon-badges.demolab.com/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white',
-        'Terraform': 'https://custom-icon-badges.demolab.com/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white',
-        'Linux': 'https://custom-icon-badges.demolab.com/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black',
-        'VS Code': 'https://custom-icon-badges.demolab.com/badge/VS_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white',
-        'SAP': 'https://custom-icon-badges.demolab.com/badge/SAP-0FAAFF?style=for-the-badge&logo=sap&logoColor=white'
-    };
+function createSkillBadges(skills: string[]): string {
 
-    return skills.map(skill => {
-        const cleanSkill = skill.trim();
-        const badgeUrl = badgeMap[cleanSkill];
-        if (badgeUrl) {
-            return `![${cleanSkill}](${badgeUrl})`;
-        } else {
-            // Fallback for skills not in the map
-            const skillSlug = cleanSkill.toLowerCase().replace(/[^a-z0-9]/g, '');
-            return `![${cleanSkill}](https://custom-icon-badges.demolab.com/badge/${cleanSkill.replace(/\s+/g, '%20')}-blue?style=for-the-badge)`;
-        }
-    }).join('\n');
+    // check how many skills are available as badges and
+    // if it is more than half of them render all as badges (custom badges for not available skills)
+    // if it is less than half, render all as bullet points
+    const availableBadges = skills.map(skill => getBadge(skill.trim())).filter(badge => badge !== null && badge !== undefined);
+    const threshold = Math.ceil(skills.length / 2);
+    if (availableBadges.length >= threshold) {
+        return skills.map(skill => {
+            const cleanSkill = skill.trim();
+            const badgeUrl = getBadge(cleanSkill);
+            if (badgeUrl) {
+                return `![${cleanSkill}](${badgeUrl})`;
+            } else {
+                // Fallback badge for skills not in the map
+                return `![${cleanSkill}](https://img.shields.io/badge/${encodeURIComponent(cleanSkill)}-lightgrey)`;
+            }
+        }).join('\n');
+    }
+    else {
+        return skills.map(skill => `- ${skill.trim()}`).join('\n');
+    }
 }
 
 function generateReadme(resumeData: ResumeData): string {
@@ -106,11 +86,6 @@ function generateReadme(resumeData: ResumeData): string {
     const githubUrl = resumeData.github.startsWith('http') ? resumeData.github : `https://${resumeData.github}`;
     const linkedinUrl = resumeData.linkedin.startsWith('http') ? resumeData.linkedin : `https://${resumeData.linkedin}`;
     const websiteUrl = resumeData.website.startsWith('http') ? resumeData.website : `https://${resumeData.website}`;
-
-    // Get technical skills for badges
-    // const techSkills = resumeData.skills.find(skill => skill.field === "Technical Skills")?.entities || [];
-    // const softSkills = resumeData.skills.find(skill => skill.field === "Soft Skills")?.entities || [];
-
     const readme = `
 <div align="center">
   <img src="${avatarPath}" alt="${fullName}" width="200" height="200" style="border-radius: 50%;" />
@@ -139,28 +114,28 @@ ${cleanMarkdownLinks(resumeData.objective).replace(/<br\s*\/?>/g, '\n\n')}
 
 ${resumeData.skills.map(skill => `
 ### ${skill.field}
-${createTechSkillBadges(skill.entities)}
+${createSkillBadges(skill.entities)}
 `).join('\n')}
 
 ## 🎓 Education
 
-${resumeData.education.map(edu => `
-### ${edu.degree} in ${edu.fieldOfStudy}
-**${edu.university}** | ${edu.cityAndCountry}  
-📅 ${edu.from} - ${edu.to}${edu.expected ? ` (Expected: ${edu.expected})` : ''}  
-🎯 GPA: ${edu.gradePointAverage}
-${edu.thesis ? `\n📝 Thesis: "${edu.thesis}" (Grade: ${edu.thesisGrade})` : ''}
-`).join('\n')}
+| Degree | University | Location | Period | GPA | Thesis |
+|--------|------------|----------|--------|-----|--------|
+${resumeData.education.map(edu => {
+    const period = `${edu.from} - ${edu.to}${edu.expected ? ` (Expected: ${edu.expected})` : ''}`;
+    const thesis = edu.thesis ? `"${edu.thesis}" (${edu.thesisGrade})` : '-';
+    return `| ${edu.degree} in ${edu.fieldOfStudy} | ${edu.university} | ${edu.cityAndCountry} | ${period} | ${edu.gradePointAverage} | ${thesis} |`;
+}).join('\n')}
 
 ## 💼 Professional Experience
 
-${resumeData.experience.map(exp => `
-### ${exp.position}
-**${cleanMarkdownLinks(exp.company)}** | ${exp.cityAndCountry}  
-📅 ${exp.from} - ${exp.to}
-
-${exp.infos.map(info => `• ${cleanMarkdownLinks(info)}`).join('\n')}
-`).join('\n')}
+| Position | Company | Location | Period | Infos |
+|----------|---------|----------|--------|---------------------|
+${resumeData.experience.map(exp => {
+    const period = `${exp.from} - ${exp.to}`;
+    const responsibilities = exp.infos.map(info => cleanMarkdownLinks(info)).join('<br>• ');
+    return `| ${exp.position} | ${cleanMarkdownLinks(exp.company)} | ${exp.cityAndCountry} | ${period} | • ${responsibilities} |`;
+}).join('\n')}
 
 ## 🚀 Featured Projects
 
@@ -209,7 +184,6 @@ ${resumeData.extracurricularActivities.map(activity => `• ${activity}`).join('
     
 </div>
 `.trim();
-
     return readme;
 }
 
