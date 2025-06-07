@@ -1,0 +1,22 @@
+{
+  "name": "github-readme-generator",
+  "version": "1.0.0",
+  "description": "Generate a stunning GitHub README from resume data",
+  "main": "generate-readme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/generate-readme.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "nodemon": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

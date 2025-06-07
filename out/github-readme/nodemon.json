@@ -1,0 +1,6 @@
+{
+    "watch": ["src", ".", "../../in/data.json"],
+    "ext": ".ts,.js,.json",
+    "ignore": [],
+    "exec": "npx ts-node ./generate-readme.ts"
+}

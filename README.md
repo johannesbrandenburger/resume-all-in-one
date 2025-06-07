@@ -9,6 +9,7 @@ Currently supported:
 
 - Professional PDF resume derived from "faangpath" resume template
 - Web resume on the basis of Next.js, React, Tailwind CSS and Aceternity UI
+- GitHub README generator
 
 ## Usage
 
@@ -17,8 +18,9 @@ Currently supported:
    1. `docker build . -t "resume-watcher"; docker run -v $(pwd):/home -p 3000:3000 resume-watcher`
 3. Open `http://localhost:3000` in your browser to see the web resume
 4. View `out/pdf-professional/main.pdf` to see the PDF resume (also available via button on the web resume)
-5. Edit `data.json` to change the resume data
-6. The resumes will be automatically updated
+5. View `out/github-readme/gen/README.md` to see the generated GitHub README
+6. Edit `data.json` to change the resume data
+7. All resumes will be automatically updated
 
 ### Generate static web resume
 
