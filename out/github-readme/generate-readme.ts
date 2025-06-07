@@ -104,7 +104,6 @@ function generateReadme(resumeData: ResumeData): string {
   📍 ${resumeData.cityAndCountry}
 </div>
 
----
 
 ## 🚀 About Me
 
@@ -119,10 +118,10 @@ ${createSkillBadges(skill.entities)}
 
 ## 🎓 Education
 
-| Degree | University | Location | Period | GPA | Thesis |
+| Degree | University | Location | Period | Avg | Thesis |
 |--------|------------|----------|--------|-----|--------|
 ${resumeData.education.map(edu => {
-        const period = `${edu.from} - ${edu.to}${edu.expected ? ` (Expected: ${edu.expected})` : ''}`;
+        const period = `${edu.from} - ${edu.expected ? `Expected ${edu.expected}` : edu.to}`;
         const thesis = edu.thesis ? `"${edu.thesis}" (${edu.thesisGrade})` : '-';
         return `| ${edu.degree} in ${edu.fieldOfStudy} | ${edu.university} | ${edu.cityAndCountry} | ${period} | ${edu.gradePointAverage} | ${thesis} |`;
     }).join('\n')}
@@ -161,7 +160,11 @@ ${resumeData.projects
                 return `
 ### ${project.name}
 
-<p style="font-size: 16px; line-height: 1.6; margin: 15px 0;">${project.description}</p>
+<p style="font-size: 16px; line-height: 1.6; margin: 15px 0;">
+
+${project.description}
+
+</p>
 
 ${imageSection}
 
