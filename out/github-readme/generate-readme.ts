@@ -122,67 +122,76 @@ ${createSkillBadges(skill.entities)}
 | Degree | University | Location | Period | GPA | Thesis |
 |--------|------------|----------|--------|-----|--------|
 ${resumeData.education.map(edu => {
-    const period = `${edu.from} - ${edu.to}${edu.expected ? ` (Expected: ${edu.expected})` : ''}`;
-    const thesis = edu.thesis ? `"${edu.thesis}" (${edu.thesisGrade})` : '-';
-    return `| ${edu.degree} in ${edu.fieldOfStudy} | ${edu.university} | ${edu.cityAndCountry} | ${period} | ${edu.gradePointAverage} | ${thesis} |`;
-}).join('\n')}
+        const period = `${edu.from} - ${edu.to}${edu.expected ? ` (Expected: ${edu.expected})` : ''}`;
+        const thesis = edu.thesis ? `"${edu.thesis}" (${edu.thesisGrade})` : '-';
+        return `| ${edu.degree} in ${edu.fieldOfStudy} | ${edu.university} | ${edu.cityAndCountry} | ${period} | ${edu.gradePointAverage} | ${thesis} |`;
+    }).join('\n')}
 
 ## 💼 Professional Experience
 
 | Position | Company | Location | Period | Infos |
 |----------|---------|----------|--------|---------------------|
 ${resumeData.experience.map(exp => {
-    const period = `${exp.from} - ${exp.to}`;
-    const responsibilities = exp.infos.map(info => cleanMarkdownLinks(info)).join('<br>• ');
-    return `| ${exp.position} | ${cleanMarkdownLinks(exp.company)} | ${exp.cityAndCountry} | ${period} | • ${responsibilities} |`;
-}).join('\n')}
+        const period = `${exp.from} - ${exp.to}`;
+        const responsibilities = exp.infos.map(info => cleanMarkdownLinks(info)).join('<br>• ');
+        return `| ${exp.position} | ${cleanMarkdownLinks(exp.company)} | ${exp.cityAndCountry} | ${period} | • ${responsibilities} |`;
+    }).join('\n')}
 
 ## 🚀 Featured Projects
 
+<div align="center">
+
 ${resumeData.projects
             .filter((_, index) => resumeData.projectsToShowInProfessionalResume.includes(index))
-            .map(project => {
-                const imageSection = project.image ? `\n<img src="./img/${project.image}" alt="${project.name}" width="500" />` : '';
-                const githubBadge = project.github ? `[![GitHub](https://custom-icon-badges.demolab.com/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://${project.github})` : '';
-                const demoBadge = project.demo ? `[![Demo](https://custom-icon-badges.demolab.com/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://${project.demo})` : '';
+            .map((project, index) => {
+                const imageSection = project.image
+                    ? `<img src="./img/${project.image}" alt="${project.name}" width="600" style="border-radius: 10px; margin: 20px 0;" />`
+                    : '';
+                const githubBadge = project.github
+                    ? `[![GitHub](https://custom-icon-badges.demolab.com/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://${project.github})`
+                    : '';
+                const demoBadge = project.demo
+                    ? `[![Demo](https://custom-icon-badges.demolab.com/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://${project.demo})`
+                    : '';
+                const badges = [githubBadge, demoBadge].filter(badge => badge).join('&nbsp;&nbsp;');
+                const separator = index < resumeData.projects.filter((_, i) => resumeData.projectsToShowInProfessionalResume.includes(i)).length - 1
+                    ? '\n\n---\n'
+                    : '';
 
                 return `
 ### ${project.name}
-${project.description}
+
+<p style="font-size: 16px; line-height: 1.6; margin: 15px 0;">${project.description}</p>
+
 ${imageSection}
 
-${[githubBadge, demoBadge].filter(badge => badge).join(' ')}
+
+${badges}
+${separator}
+
 `;
             }).join('\n')}
 
+</div>
+
 ## 🎯 Interests & Activities
 
-${resumeData.extracurricularActivities.map(activity => `• ${activity}`).join('\n')}
+${resumeData.extracurricularActivities.map(activity => `- ${activity}`).join('\n')}
 
----
+
+## 📊 GitHub Stats
 
 <div align="center">
   
-  ## 📊 GitHub Stats
   
   ![GitHub stats](https://github-readme-stats.vercel.app/api?username=${resumeData.github.split('/').pop()}&show_icons=true&theme=tokyonight)
   
   ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=${resumeData.github.split('/').pop()}&layout=compact&theme=tokyonight)
   
-  ## 🔥 GitHub Streak
-  
   ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=${resumeData.github.split('/').pop()}&theme=tokyonight)
   
-  ---
-  
-  ### 🤝 Let's Connect!
-  
-  I'm always open to interesting conversations and collaboration opportunities!
-  
-  💬 **Feel free to reach out:** [${resumeData.email}](mailto:${resumeData.email})  
-  🌐 **Visit my website:** [${resumeData.website}](${websiteUrl})  
-    
 </div>
+    
 `.trim();
     return readme;
 }
