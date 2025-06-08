@@ -30,13 +30,12 @@ export function ExperienceCards({ items }: ExperienceCardsProps) {
             <p className="text-sm mb-2">{item.from} - {item.to}</p>
 
             {item.infos && (
-              <div className="flex flex-col">
+              <ul className="flex flex-col list-disc list-inside">
                 {item.infos.map((info, i) => (
                   <li key={i} className="text-sm">{replaceMdWithNextLinks(info)}</li>
                 ))}
-              </div>
-            )
-            }
+              </ul>
+            )}
           </div>
         );
 
